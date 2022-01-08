@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_07_02_000938) do
-
   create_table "addresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "type", null: false
@@ -30,6 +29,7 @@ ActiveRecord::Schema.define(version: 2021_07_02_000938) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
+
   create_table "entries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "program_id", null: false
     t.bigint "user_id", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2021_07_02_000938) do
     t.index ["program_id", "user_id"], name: "index_entries_on_program_id_and_user_id", unique: true
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
+
 
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2021_07_02_000938) do
     t.index ["user_id"], name: "index_phones_on_user_id"
   end
 
+
   create_table "programs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "registrant_id", null: false
     t.string "title", null: false
@@ -90,7 +92,6 @@ ActiveRecord::Schema.define(version: 2021_07_02_000938) do
     t.index ["application_start_time"], name: "index_programs_on_application_start_time"
     t.index ["registrant_id"], name: "index_programs_on_registrant_id"
   end
-
   create_table "staff_events", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "type", null: false
@@ -144,3 +145,4 @@ ActiveRecord::Schema.define(version: 2021_07_02_000938) do
   add_foreign_key "programs", "users", column: "registrant_id"
   add_foreign_key "staff_events", "users"
 end
+

@@ -4,6 +4,8 @@ class Customer::EntriesController < Customer::BaseController
     case Customer::EntryAcceptor.new(current_user).accept(program)
     when :accepted
       flash.notice = 'プログラムに申し込みました。'
+    when :redundancy
+      flash.alert = "既にこのプログラムを申し込んでいます。"
     when :full
       flash.alert = 'プログラムへの申込者数が上限に達しました。'
     when :closed

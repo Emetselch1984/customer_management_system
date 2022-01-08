@@ -26,8 +26,8 @@ class ProgramDecorator < ApplicationDecorator
   def apply_or_cancel_button(current_user)
     if entry = object.entries.find_by(user_id: current_user.id)
       status = cancellation_status(entry)
-      h.button_to cancel_button_label_ text(status),
-                  [:cancel, :customer, object, :entry],
+      h.button_to cancel_button_label_text(status),
+                  [ :cancel, :customer, object, :entry ],
                   disabled: status != :cancellable, method: :patch,
                   data: { confirm: '本当にキャンセルしますか？ ' }
     else

@@ -13,6 +13,7 @@ class User < ApplicationRecord
            class_name: 'Phone', autosave: true
   has_many :entries, dependent: :destroy
   has_many :programs, through: :entries
+  # programを作成したスタッフは先にprogramsを作成しないと削除できない
   has_many :programs, foreign_key: 'registrant_id', dependent: :restrict_with_exception
   has_many :messages
   has_many :outbound_messages, class_name: 'CustomerMessage', foreign_key: 'user_id'
