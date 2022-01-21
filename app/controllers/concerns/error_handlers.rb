@@ -1,4 +1,5 @@
 module ErrorHandlers
+  # この表記をすると下記includeメソッドが使えるようになる
   extend ActiveSupport::Concern
 
   included do
