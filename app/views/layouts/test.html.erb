@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title><%= document_title %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'test', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'test', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div id="wrapper">
+  <%= yield %>
+</div>
+</body>
+</html>
