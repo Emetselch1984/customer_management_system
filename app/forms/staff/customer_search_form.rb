@@ -1,3 +1,8 @@
+# このフォームオブジェクトはテキスト通りに書いただけで、意味はない。
+# 意味がないとは、各属性はnilなので、nilを正規化した後、
+# ransackの結果が表示されるから。
+# よって、このフォームオブジェクトを作らなくていい。
+# 勉強用で保存。
 class Staff::CustomerSearchForm
   include ActiveModel::Model
   include Ransack
@@ -7,7 +12,6 @@ class Staff::CustomerSearchForm
                 :birth_year, :birth_month, :birth_mday,
                 :address_type, :prefecture, :city, :phone_number,
                 :gender, :postal_code, :last_four_digits_of_phone_number
-
   def search(object)
     normalize_values
     object.result
@@ -26,3 +30,5 @@ class Staff::CustomerSearchForm
       normalize_as_phone_number(last_four_digits_of_phone_number)
   end
 end
+
+
