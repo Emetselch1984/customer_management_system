@@ -41,6 +41,9 @@ Rails.application.routes.draw do
         delete :all_destroy, on: :collection
       end
     end
+    namespace :test do
+      root 'top#dashboard'
+    end
   end
   constraints host: config[:customer][:host] do
     namespace :customer do
