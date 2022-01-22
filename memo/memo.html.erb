@@ -38,3 +38,23 @@
     <%= f.submit("検索") %>
   </div>
 <% end %>
+
+<%= form_with model: @customer_form, scope: 'form',
+              url: staff_customers_path do |f| %>
+  <%= render "form", f: f %>
+  <%= f.submit "登録" %>
+<% end %>
+
+<fieldset id="customer-fields">
+  <legend>基本情報</legend>
+  <%= render "customer_fields", f: f %>
+</fieldset>
+<%= f.fields_for :customer,f.object.customer do |ff| %>
+  <% object.personal_phones.each_with_index do |phone,index| %>
+    <%= render "phone_fields", f: ff,phone: phone,index: index %>
+  <% end %>
+<% end %>
+
+<%= f.fields_for :phones,phone,index: index do |ff| %>
+
+<% end %>
