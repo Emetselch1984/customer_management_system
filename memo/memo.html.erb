@@ -1,0 +1,40 @@
+<%= search_form_for @q,url: staff_customers_path ,
+                    html: { method: :get, class: "search" } do |f| %>
+  <div class="input-block">
+    <%= label(:addresses_prefecture_cont, "都道府県") %>
+    <%= search_field(:addresses_prefecture_cont) %>
+  </div>
+  <%= f.submit("検索") %>
+<% end %>
+
+<div class="input-block">
+  <%= label(:addresses_prefecture_cont, "都道府県") %>
+  <%= f.select((1900..Time.current.year).to_a.reverse) %>
+</div>
+<%= search_form_for @q,url: staff_customers_path ,
+                    html: { method: :get, class: "search" } do |f| %>
+  <div class="input-block">
+    <%= f.label(:addresses_prefecture_cont, "都道府県") %>
+    <%= f.search_field(:addresses_prefecture_cont,{}) %>
+  </div>
+  <div class="input-block">
+    <%= f.label(:addresses_prefecture_cont, "都道府県") %>
+    <%= f.search_field(:addresses_prefecture_cont,{}) %>
+  </div>
+  <div class="input-block">
+    <%= f.label(:addresses_prefecture_cont, "都道府県") %>
+    <%= f.search_field(:addresses_prefecture_cont,{}) %>
+  </div>
+  <div class="input-block">
+    <%= f.label(:addresses_prefecture_cont, "都道府県") %>
+    <%= f.select(:birth_year_eq,(1900..Time.current.year).to_a.reverse) %>
+  </div>
+  <div>
+    <%= f.label(:addresses_prefecture_cont, "都道府県") %>
+    <%= f.select(:birth_year_eq,1..12,{ include_blank: true }) %>
+  </div>
+
+  <div class="input-block">
+    <%= f.submit("検索") %>
+  </div>
+<% end %>

@@ -102,3 +102,4 @@ class FormPresenter
     label(name, label_text, class: options[:required] ? 'required' : nil)
   end
 end
+
