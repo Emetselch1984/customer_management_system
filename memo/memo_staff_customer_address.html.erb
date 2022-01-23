@@ -1,0 +1,26 @@
+<%= form_with model: @customer_form,scope: "form",
+              url: staff_customers_path do |f| %>
+  <%= render "form",f: f %>
+  <%= f.submit "登録" %>
+<% end %>
+
+<fieldset id="customers-fields">
+  <legend>基本情報</legend>
+  <%= render "customers_fields",f: f %>
+</fieldset>
+<div class="check-boxes">
+  <%= f.check_box :inputs_home_address %>
+  <%= f.label :inputs_home_address,"自宅住所を入力する" %>
+</div>
+<fieldset id="home_address-fields">
+  <legend>基本情報</legend>
+  <%= render "home_address_fields",f: f %>
+</fieldset>
+<div class="check-boxes">
+  <%= f.check_box :inputs_work_address %>
+  <%= f.label :inputs_work_address,"勤務先を入力する" %>
+</div>
+<fieldset id="work_address-fields">
+  <legend>基本情報</legend>
+  <%= render "work_address_fields",f: f %>
+</fieldset>
